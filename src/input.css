@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.open .upper-dash {
+  background-color: white;
+  transform: rotate(45deg) translate(2.5px, 1.5px);
+  transition: all 0.5s;
+}
+.open .mid-dash {
+  display: none;
+}
+.open .lower-dash {
+  background-color: white;
+  transform: rotate(135deg) translate(-3px, 3px);
+  transition: all 0.4s;
+}
+
+.bg-hero {
+  width: 2000px;
+  height: 250px;
+  position: absolute;
+  left: 30%;
+  top: 7rem;
+  z-index: -10;
+  border-radius: 9999px 0 0 9999px;
+  @apply bg-softBlue;
+  @apply xl:top-64;
+}
+.bg-feature {
+  width: 2000px;
+  height: 250px;
+  position: absolute;
+  transform: translateX(-2000px);
+  left: 63%;
+  top: 11rem;
+  z-index: -10;
+  border-radius: 0 9999px 9999px 0;
+  @apply bg-softBlue;
+  @apply xl:top-40;
+}
