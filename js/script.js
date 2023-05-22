@@ -56,7 +56,7 @@ const obs = new IntersectionObserver(
   {
     // in the viewport
     root: null,
-    threshold: 0.8,
+    threshold: 0,
   }
 );
 obs.observe(sectionHeroEl);
