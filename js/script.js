@@ -56,7 +56,7 @@ const obs = new IntersectionObserver(
   {
     // in the viewport
     root: null,
-    threshold: 0,
+    threshold: 0.8,
   }
 );
 obs.observe(sectionHeroEl);
@@ -73,6 +73,7 @@ function MobNavMenu() {
   menu.classList.toggle("translate-x-0");
 
   BM.classList.toggle("fill-[#242A45]");
+  BM.classList.toggle("fill-white");
 
   // Toggle the overflow-hidden class with a delay of 0 seconds on the first click
   // and a delay of 0.5 seconds on the second click
@@ -140,11 +141,13 @@ menuLinks.forEach((link) => {
 Note that this code will only be executed once when the page is loaded. If you want the MobNavMenu() function to be called whenever the browser window is resized, you will need to use the window.addEventListener() method to attach an event listener to the resize event, and call the function accordingly
  */
 // add event listener for window resize
+
 window.addEventListener("resize", () => {
   if (
-    window.innerWidth >= 768 &&
+    window.innerWidth >=
+      48 * parseFloat(getComputedStyle(document.documentElement).fontSize) &&
     menu.classList.contains("translate-x-0") &&
-    !BM.classList.contains("bg-white")
+    BM.classList.contains("fill-white")
   ) {
     MobNavMenu();
   }
