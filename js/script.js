@@ -11,66 +11,117 @@ const ngr = document.querySelectorAll(".ng");
 const dash = document.querySelectorAll(".dsh");
 const sectionHeroEl = document.querySelector(".hero");
 
-const obs = new IntersectionObserver(
-  function (entries) {
-    const ent = entries[0];
-    console.log(ent);
-    if (ent.isIntersecting === false) {
-      // headerMenu.classList.add("fixed");
-      headerMenu.classList.add("backdrop-blur-sm");
-      headerMenu.classList.add("bg-veryDarkBlue");
-      headerMenu.classList.add("bg-opacity-95");
-      BM.classList.remove("fill-[#242A45]");
+// const obs = new IntersectionObserver(
+//   function (entries) {
+//     const ent = entries[0];
+//     console.log(ent);
+//     if (ent.isIntersecting === false) {
+// const delayTime = clickCount === 1 ? 0 : 200;
+// setTimeout(function () {
+// sectionHeroEl.classList.add("mt-28");
+// headerMenu.classList.add("fixed");
+
+// headerMenu.classList.add("backdrop-blur-sm");
+// headerMenu.classList.add("bg-veryDarkBlue");
+// headerMenu.classList.add("bg-opacity-95");
+// BM.classList.remove("fill-[#242A45]");
+// dash.forEach((element) => {
+//   // do something with each element
+//   element.classList.remove("bg-black");
+//   element.classList.add("bg-white");
+// });
+// ngr.forEach((element) => {
+//   // do something with each element
+//   element.classList.remove("text-grayishBlue");
+//   element.classList.add("text-gray-200");
+// });
+// }, delayTime);
+// }
+// if (ent.isIntersecting === true) {
+// Check if the menu is closed (i.e., doesn't have the translate-x-0 class)
+//   if (!menu.classList.contains("translate-x-0")) {
+//     headerMenu.classList.remove("fixed");
+//     sectionHeroEl.classList.remove("mt-28");
+
+//     headerMenu.classList.remove("backdrop-blur-sm");
+//     headerMenu.classList.remove("bg-veryDarkBlue");
+//     headerMenu.classList.remove("bg-opacity-95");
+//     BM.classList.add("fill-[#242A45]");
+//     dash.forEach((element) => {
+//       // do something with each element
+//       element.classList.add("bg-black");
+//       element.classList.remove("bg-white");
+//     });
+//     ngr.forEach((element) => {
+//       // do something with each element
+//       element.classList.add("text-grayishBlue");
+//       element.classList.remove("text-gray-200");
+//     });
+//   }
+// }
+//   },
+//   {
+//     // in the viewport
+//     root: null,
+//     threshold: 0,
+//     rootMargin: "-80px",
+//   }
+// );
+// obs.observe(sectionHeroEl);
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > sectionHeroEl.offsetHeight - 80) {
+    sectionHeroEl.classList.add("mt-20");
+    headerMenu.classList.add("fixed");
+
+    headerMenu.classList.add("backdrop-blur-sm");
+    headerMenu.classList.add("bg-veryDarkBlue");
+    headerMenu.classList.add("bg-opacity-95");
+    BM.classList.remove("fill-[#242A45]");
+    dash.forEach((element) => {
+      // do something with each element
+      element.classList.remove("bg-black");
+      element.classList.add("bg-white");
+    });
+    ngr.forEach((element) => {
+      // do something with each element
+      element.classList.remove("text-grayishBlue");
+      element.classList.add("text-gray-200");
+    });
+  } else {
+    if (!menu.classList.contains("translate-x-0")) {
+      headerMenu.classList.remove("fixed");
+      sectionHeroEl.classList.remove("mt-20");
+
+      headerMenu.classList.remove("backdrop-blur-sm");
+      headerMenu.classList.remove("bg-veryDarkBlue");
+      headerMenu.classList.remove("bg-opacity-95");
+      BM.classList.add("fill-[#242A45]");
       dash.forEach((element) => {
         // do something with each element
-        element.classList.remove("bg-black");
-        element.classList.add("bg-white");
+        element.classList.add("bg-black");
+        element.classList.remove("bg-white");
       });
       ngr.forEach((element) => {
         // do something with each element
-        element.classList.remove("text-grayishBlue");
-        element.classList.add("text-gray-200");
+        element.classList.add("text-grayishBlue");
+        element.classList.remove("text-gray-200");
       });
     }
-    if (ent.isIntersecting === true) {
-      // Check if the menu is closed (i.e., doesn't have the translate-x-0 class)
-      if (!menu.classList.contains("translate-x-0")) {
-        // headerMenu.classList.add("fixed");
-        headerMenu.classList.remove("backdrop-blur-sm");
-        headerMenu.classList.remove("bg-veryDarkBlue");
-        headerMenu.classList.remove("bg-opacity-95");
-        BM.classList.add("fill-[#242A45]");
-        dash.forEach((element) => {
-          // do something with each element
-          element.classList.add("bg-black");
-          element.classList.remove("bg-white");
-        });
-        ngr.forEach((element) => {
-          // do something with each element
-          element.classList.add("text-grayishBlue");
-          element.classList.remove("text-gray-200");
-        });
-      }
-    }
-  },
-  {
-    // in the viewport
-    root: null,
-    threshold: 0.8,
   }
-);
-obs.observe(sectionHeroEl);
-
+});
 /***************** */
 function MobNavMenu() {
   clickCount++;
   btnMenu.classList.toggle("open");
+  headerMenu.classList.toggle("fixed");
 
   headerMenu.classList.toggle("backdrop-blur-sm");
   headerMenu.classList.toggle("bg-veryDarkBlue");
   headerMenu.classList.toggle("bg-opacity-95");
   menu.classList.toggle("translate-x-full");
   menu.classList.toggle("translate-x-0");
+  sectionHeroEl.classList.toggle("mt-20");
 
   BM.classList.toggle("fill-[#242A45]");
   BM.classList.toggle("fill-white");
