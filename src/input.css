@@ -33,9 +33,9 @@
   position: absolute;
   transform: translateX(-2000px);
   left: 63%;
-  top: 11rem;
+  top: 12rem;
   z-index: -10;
   border-radius: 0 9999px 9999px 0;
   @apply bg-softBlue;
-  @apply xl:top-40;
+  @apply xl:top-52;
 }
