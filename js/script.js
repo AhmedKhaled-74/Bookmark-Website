@@ -141,7 +141,11 @@ Note that this code will only be executed once when the page is loaded. If you w
  */
 // add event listener for window resize
 window.addEventListener("resize", () => {
-  if (window.innerWidth >= 768 && menu.classList.contains("translate-x-0")) {
+  if (
+    window.innerWidth >= 768 &&
+    menu.classList.contains("translate-x-0") &&
+    !BM.classList.contains("bg-white")
+  ) {
     MobNavMenu();
   }
 });
