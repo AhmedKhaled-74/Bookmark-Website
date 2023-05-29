@@ -525,7 +525,9 @@
       </div>
     </section>
     <section id="cta" class="py-24 bg-softBlue">
-      <div class="max-w-xl mx-auto text-white px-8 text-center">
+      <div
+        class="max-w-xl mx-auto text-white selection:bg-gray-600 px-8 text-center"
+      >
         <p class="uppercase mb-8 text-lg tracking-widest">
           35,000+ ALREADY JOINED
         </p>
@@ -533,10 +535,13 @@
           Stay up-to-date with what we're doing
         </p>
       </div>
-      <form class="flex flex-col justify-center items-center md:flex-row gap-3">
+      <form
+        class="flex selection:bg-gray-600 selection:text-white flex-col justify-center items-center md:flex-row gap-3"
+      >
         <input
           type="email"
           name="email"
+          spellcheck="false"
           class="w-60 px-8 py-3 outline-none rounded-lg"
           placeholder="Enter your email address"
         />
