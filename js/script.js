@@ -68,9 +68,16 @@ const sectionHeroEl = document.querySelector(".hero");
 //   }
 // );
 // obs.observe(sectionHeroEl);
-
+let prevScrollPos = window.pageYOffset;
 window.addEventListener("scroll", () => {
-  if (window.scrollY > sectionHeroEl.offsetHeight - 80) {
+  const currentScrollPos = window.pageYOffset;
+  const scrollDirection = prevScrollPos > currentScrollPos ? "up" : "down";
+  prevScrollPos = currentScrollPos;
+
+  if (
+    window.scrollY > sectionHeroEl.offsetHeight - 80 &&
+    scrollDirection === "up"
+  ) {
     sectionHeroEl.classList.add("mt-20");
     headerMenu.classList.add("fixed");
 
@@ -229,3 +236,5 @@ function onTabClick(e) {
     .getElementsByClassName(classString)[0]
     .classList.remove("hidden");
 }
+
+/******************************************************************* */
